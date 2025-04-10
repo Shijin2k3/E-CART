@@ -1,5 +1,6 @@
 "use client"
 import { useCartStore } from "../../../store/cart-store"
+import { checkoutAction } from "./checkoutAction";
 
 
 export default function CheckoutPage() {
@@ -40,7 +41,8 @@ export default function CheckoutPage() {
         </div>
 
       </div>
-      <form className="max-w-md mx-auto">
+      <form action={checkoutAction} className="max-w-md mx-auto">
+        <input type="hidden" name="items" value={JSON.stringify(items)} />
         <button className="w-full py-2 bg-black text-white" type="submit">
           Proceed to payment
         </button>
